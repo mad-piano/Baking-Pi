@@ -1,7 +1,4 @@
-build/
-   (empty)
-source/
-   main.s
-kernel.ld
-LICENSE
-Makefile
+.section .init
+.globl _start
+_start:
+
