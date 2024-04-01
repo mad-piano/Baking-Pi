@@ -1,0 +1,4 @@
+sudo apt-get install mpich
+mpicexec --version
+mpicc hello_mpi.c -o hello_mpi
+mpirun -np 4 ./hello_mpi
