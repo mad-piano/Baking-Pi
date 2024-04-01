@@ -1,4 +1,14 @@
+Initial MPI
+--------------
 sudo apt-get install mpich
 mpicexec --version
 mpicc hello_mpi.c -o hello_mpi
 mpirun -np 4 ./hello_mpi
+--------------
+SSH Stuff
+--------------
+sudo raspi-config (Then navigate to "Interfacing Options" > "SSH" and enable SSH if it's not already enabled.)
+hostname -I (169.254.116.109 172.19.1.165)
+sudo service ssh status
+ssh username@ip_address
+
