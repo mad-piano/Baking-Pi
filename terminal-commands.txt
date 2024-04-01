@@ -10,5 +10,6 @@ SSH Stuff
 sudo raspi-config (Then navigate to "Interfacing Options" > "SSH" and enable SSH if it's not already enabled.)
 hostname -I (p2: 169.254.116.109 172.19.1.165 | p1: 169.254.38.164 172.19.5.81)
 sudo service ssh status
+sudo service ssh start
 ssh username@ip_address
 
