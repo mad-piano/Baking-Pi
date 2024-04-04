@@ -9,5 +9,8 @@ do
     ip=$(echo $info | cut -d' ' -f1)
     hostname=$(echo $info | cut -d' ' -f2)
     echo "Connecting to Raspberry Pi at $hostname ($ip)"
-    ssh $hostname@$ip 'for i in $(seq 0 3); do echo "Hello World from core $i"; done'
+    for core in {0..3}
+    do
+        ssh $hostname@$ip "echo 'Hello World from core $core'"
+    done
 done
