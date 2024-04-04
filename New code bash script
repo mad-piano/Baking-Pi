@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Array of IP addresses and corresponding hostnames of all Raspberry Pis in the cluster, including the host
+pi_info=("172.19.0.14 bevmic2" "169.254.38.164 bevmic")
+
+# Function to run SSH command in background
+run_ssh_command() {
+    ssh -i ~/.ssh/id_rsa "$1@$2" "echo 'Hello World from core $3' &"
+}
+
+# SSH into each Raspberry Pi and execute a command
+for info in "${pi_info[@]}"
+do
+    ip=$(echo "$info" | cut -d' ' -f1)
+    hostname=$(echo "$info" | cut -d' ' -f2)
+    echo "Connecting to Raspberry Pi at $hostname ($ip)"
+    for core in {0..3}
+    do
+        run_ssh_command "$hostname" "$ip" "$core"
+    done
+done
